@@ -1,0 +1,14 @@
+:root {
+  color-scheme: light;
+  --color-background: #ffffff;
+  --color-text: #171717;
+  --color-focus: #1748c2;
+  --font-body: Arial, Helvetica, sans-serif;
+  --space-2: 0.5rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-16: 4rem;
+  --page-gutter: clamp(1rem, 4vw, 3rem);
+  --content-width: 80rem;
+}

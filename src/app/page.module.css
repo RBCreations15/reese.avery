@@ -1,0 +1,16 @@
+.main {
+  min-height: 100svh;
+  display: grid;
+  align-items: center;
+  padding-block: var(--space-8);
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 3rem);
+  line-height: 1.1;
+}
+
+.description {
+  margin: var(--space-4) 0 0;
+}
