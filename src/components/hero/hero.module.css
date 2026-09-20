@@ -1,0 +1,114 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+  min-height: max(760px, 100svh);
+  display: flex;
+  flex-direction: column;
+  overflow: clip;
+}
+.identity { position: relative; z-index: 2; padding-top: clamp(1rem, 2svh, 2rem); }
+.wordmarkPosition { margin-inline: auto; width: 82%; }
+.wordmark {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  margin: 0;
+  font-size: clamp(6rem, 15.1vw, 22rem);
+  line-height: 1.02;
+  font-weight: 800;
+  white-space: nowrap;
+  letter-spacing: -0.085em;
+}
+.reese {
+  font-family: var(--font-wordmark), sans-serif;
+  font-weight: 400;
+  font-variation-settings: "wdth" 108;
+  font-size: 0.8em;
+  letter-spacing: 0.005em;
+  padding-right: 0.015em;
+  transform: scaleY(1.12);
+  transform-origin: center 75%;
+}
+.reese > span { display: inline-block; }
+.e { transform: rotate(-18deg); }
+.avery { letter-spacing: -0.09em; font-weight: 700; font-size: 1.08em; }
+.dot {
+  display: inline-block;
+  width: 0.105em;
+  height: 0.105em;
+  margin-inline: 0.015em;
+  background: currentColor;
+  border-radius: 50%;
+  text-indent: -9999px;
+  overflow: hidden;
+  letter-spacing: 0;
+}
+.disciplines {
+  list-style: none;
+  padding: 0;
+  margin: 1.1rem auto 0;
+  width: 72%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: var(--type-label);
+  letter-spacing: 0.2em;
+}
+.disciplines li { text-align: center; white-space: nowrap; }
+.disciplines span { margin-right: 0.4rem; font-size: 1.1em; }
+.editorial {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  min-height: 340px;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr 1fr;
+  align-items: center;
+  gap: 2.5vw;
+  width: 85%;
+  margin: 2.4rem auto 1rem;
+}
+.introduction, .statement { margin: 0; font-size: var(--type-copy); line-height: 1.26; letter-spacing: -0.025em; }
+.introduction { padding-top: 2rem; }
+.introduction span, .statement span { display: block; }
+.statement { padding-top: 4rem; }
+.statement p { margin: 0; }
+.statement .manifesto { margin-top: 1rem; font-size: clamp(1rem, 1.7vw, 1.85rem); line-height: 1.05; font-weight: 800; letter-spacing: -0.065em; }
+.manifesto span { white-space: nowrap; }
+.cameraPosition { position: relative; z-index: 3; min-width: 0; width: 84%; max-width: 380px; justify-self: center; }
+.index { position: absolute; top: 58%; left: 1.5%; font-family: var(--font-mono); font-size: var(--type-label); letter-spacing: var(--tracking-label); }
+.annotations { position: relative; z-index: 2; min-height: 12svh; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem var(--page-gutter); font-family: var(--font-mono); font-size: var(--type-label); letter-spacing: var(--tracking-label); }
+.scroll { display: flex; flex-direction: column; align-items: start; gap: 0.5rem; text-decoration: none; line-height: 1.45; }
+.scroll i { display: block; height: 24px; width: 1px; background: currentColor; }
+
+@media (min-width: 1900px) {
+  .editorial { max-width: 110rem; }
+}
+@media (min-width: 701px) and (max-width: 1050px) {
+  .hero { min-height: max(680px, 100svh); }
+  .wordmark { font-size: 16vw; }
+  .disciplines { width: 82%; font-size: 0.6rem; letter-spacing: 0.12em; }
+  .editorial { width: 84%; gap: 1.5rem; grid-template-columns: 1fr 1fr 1fr; }
+  .introduction span, .statement span { display: inline; }
+  .manifesto span { display: block; white-space: normal; }
+  .statement .manifesto { font-size: 1.25rem; }
+}
+@media (max-width: 700px) {
+  .hero { --header-height: 7rem; min-height: 0; }
+  .identity { padding-top: 2.5rem; }
+  .wordmarkPosition { width: calc(100% - 2 * var(--page-gutter)); }
+  .wordmark { flex-direction: column; align-items: start; font-size: clamp(5rem, 29vw, 12.7rem); line-height: 0.85; }
+  .reese { margin-left: 0.02em; font-size: 1.03em; letter-spacing: -0.025em; transform: none; }
+  .avery { align-self: end; margin-top: 0.08em; margin-right: 0.05em; font-size: 1em; }
+  .disciplines { width: calc(100% - 2 * var(--page-gutter)); margin-top: 2rem; gap: 0.55rem; font-size: clamp(0.5rem, 1.65vw, 0.7rem); letter-spacing: 0.025em; }
+  .disciplines li { text-align: left; white-space: normal; }
+  .disciplines span { margin-right: 0.15rem; }
+  .editorial { display: grid; grid-template-columns: 1fr; width: calc(100% - 2 * var(--page-gutter)); margin: 3rem auto 2rem; gap: 3rem; }
+  .cameraPosition { grid-row: 1; width: min(76%, 340px); justify-self: center; padding-block: 1.75rem 1rem; }
+  .introduction { padding: 0; font-size: clamp(0.875rem, 3.4vw, 1.0625rem); }
+  .statement { padding: 0; justify-self: end; max-width: 95%; font-size: clamp(0.875rem, 3.4vw, 1.0625rem); }
+  .statement .manifesto { font-size: clamp(1.1rem, 5vw, 1.8rem); margin-top: 0.85rem; }
+  .annotations { margin-top: 1.5rem; min-height: 6rem; }
+  .index { top: 46%; left: 0.35rem; font-size: 0.5rem; }
+}

@@ -1,14 +1,21 @@
 :root {
   color-scheme: light;
-  --color-background: #ffffff;
-  --color-text: #171717;
-  --color-focus: #1748c2;
-  --font-body: Arial, Helvetica, sans-serif;
+  --color-background: #f4f3ef;
+  --color-text: #111111;
+  --color-muted: #66655f;
+  --color-grid: rgb(51 47 40 / 10%);
+  --color-focus: #111111;
+  --font-body: var(--font-sans), Arial, Helvetica, sans-serif;
+  --font-mono: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+  --type-label: clamp(0.625rem, 0.77vw, 0.8125rem);
+  --type-copy: clamp(0.8125rem, 1.13vw, 1.1875rem);
+  --tracking-label: 0.16em;
+  --header-height: clamp(5rem, 10.5svh, 7rem);
   --space-2: 0.5rem;
   --space-4: 1rem;
   --space-6: 1.5rem;
   --space-8: 2rem;
   --space-16: 4rem;
-  --page-gutter: clamp(1rem, 4vw, 3rem);
-  --content-width: 80rem;
+  --page-gutter: clamp(1.25rem, 4.5vw, 5rem);
+  --content-width: 112rem;
 }

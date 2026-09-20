@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="390" viewBox="0 0 600 390">
+  <title>Temporary camera shell diagram — replace with a back-view photograph</title>
+  <rect x="155" y="2" width="95" height="18" rx="5" fill="#b5b5af" stroke="#777872" stroke-width="2"/>
+  <rect x="450" y="2" width="64" height="18" rx="5" fill="#b5b5af" stroke="#777872" stroke-width="2"/>
+  <rect x="7" y="15" width="586" height="367" rx="28" fill="#bebfb9" stroke="#777872" stroke-width="3"/>
+  <rect x="17" y="25" width="566" height="347" rx="23" fill="#d4d4ce" stroke="#e9e9e3" stroke-width="3"/>
+  <rect x="35" y="40" width="410" height="308" rx="9" fill="#242522"/>
+  <rect x="264" y="24" width="56" height="13" rx="5" fill="#4b4c47"/>
+  <circle cx="513" cy="225" r="42" fill="#bfc0ba" stroke="#83857d" stroke-width="2"/>
+  <circle cx="513" cy="225" r="20" fill="#d8d9d3" stroke="#85877f" stroke-width="2"/>
+  <circle cx="489" cy="136" r="12" fill="#bfc0ba" stroke="#85877f" stroke-width="2"/>
+  <circle cx="539" cy="136" r="12" fill="#bfc0ba" stroke="#85877f" stroke-width="2"/>
+  <circle cx="489" cy="309" r="12" fill="#bfc0ba" stroke="#85877f" stroke-width="2"/>
+  <circle cx="539" cy="309" r="12" fill="#bfc0ba" stroke="#85877f" stroke-width="2"/>
+  <text x="478" y="70" font-family="monospace" font-size="9" letter-spacing="1" fill="#565850">SHELL</text>
+  <text x="478" y="85" font-family="monospace" font-size="9" letter-spacing="1" fill="#565850">STUDY</text>
+</svg>

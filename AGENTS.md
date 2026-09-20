@@ -24,7 +24,7 @@ Future scroll-linked animation, parallax, masking, typography transitions, inter
 
 Use the shared `src/lib/gsap.ts` registration and scoped `useGSAP` lifecycles. Clean up timelines, ScrollTriggers, media contexts, and event listeners. Support `prefers-reduced-motion`, including preference changes, and keep essential content and navigation usable without animation. Keep global interaction controllers separate from section components and add them only when the corresponding feature is requested.
 
-Do not build the portfolio design or future effects until requested. Retain the minimal temporary page for now.
+Phase 1 is now authorized: implement the global design system, navigation, homepage hero, camera interaction, restrained entrance/scroll motion, responsive layouts, and a blank transition area. The supplied Reese Avery mockup is the primary visual target; the standalone `reese` screenshot is a font reference, not an image logo. Sahor references inform restraint and future motion only. Do not build Selected Works, project pages, Visual Archive, About, Talent, Contact, or a footer yet. Use clearly marked replaceable placeholders for missing camera/photographic assets; never present a stock or generated person as Reese.
 
 <!-- BEGIN:nextjs-agent-rules -->
 
