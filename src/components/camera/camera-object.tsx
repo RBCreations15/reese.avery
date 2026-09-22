@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState, type CSSProperties } from "react";
+import { useRef, useState } from "react";
 import { cameraAssets } from "@/content/hero";
 import { gsap, useGSAP } from "@/lib/gsap";
 import styles from "./camera-object.module.css";
+import { CameraScreen } from "./camera-screen";
 
 export function CameraObject() {
   const scope = useRef<HTMLElement>(null);
@@ -72,19 +73,18 @@ export function CameraObject() {
     <figure className={styles.figure} ref={scope}>
       <div className={styles.perspective}>
         <button ref={button} className={styles.camera} type="button" onClick={advance}
-          aria-label="Advance camera to next image" aria-describedby="camera-instructions">
-          <Image className={styles.shell} src={cameraAssets.shell} alt="" width={cameraAssets.width} height={cameraAssets.height} preload />
-          <span className={styles.screen} style={cameraAssets.screen as CSSProperties}>
-            <Image key={frame.src} src={frame.src} alt={frame.alt} fill sizes="(max-width: 700px) 55vw, 22vw" />
-            <span className={styles.counter} aria-hidden="true">{count}</span>
-            {frame.metadata && <span className={styles.metadata}>{frame.metadata}</span>}
-          </span>
+          aria-label="Advance camera to next image">
+          <Image className={styles.shell} src={cameraAssets.shell} alt="" width={cameraAssets.width} height={cameraAssets.height}
+            sizes="(max-width: 700px) 100vw, (max-width: 1600px) 29vw, 456px" preload
+            style={{
+              width: `${cameraAssets.width / cameraAssets.viewBox[2] * 100}%`,
+              left: `${-cameraAssets.viewBox[0] / cameraAssets.viewBox[2] * 100}%`,
+              top: `${-cameraAssets.viewBox[1] / cameraAssets.viewBox[3] * 100}%`,
+            }} />
+          <CameraScreen index={index} count={count} />
         </button>
       </div>
       <div className={styles.shadow} aria-hidden="true" />
-      <figcaption className={styles.caption} id="camera-instructions">
-        {cameraAssets.placeholder ? "TEMPORARY CAMERA · " : ""}CLICK / TAP TO ADVANCE
-      </figcaption>
       <span role="status" aria-live="polite" aria-atomic="true" className="sr-only">Image {index + 1} of {total}. {frame.alt}</span>
     </figure>
   );

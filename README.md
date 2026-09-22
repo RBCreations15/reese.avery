@@ -53,7 +53,7 @@ Type checking generates Next.js route types before running TypeScript, including
 - `src/components/motion/reveal.tsx`: optional client-side scroll enhancement for future sections.
 - `src/lib/gsap.ts`: shared GSAP, ScrollTrigger, and `useGSAP` registration for client components.
 - `public/images/` and `public/videos/`: static assets, served at `/images/...` and `/videos/...`.
-- `public/media/camera/`: explicitly temporary camera/LCD SVGs and a documented realistic camera asset slot. Camera replacement instructions are in `public/media/camera/README.md`.
+- `public/media/camera/`: the supplied realistic PNG shell and five replaceable LCD placeholder SVGs. Camera replacement instructions are in `public/media/camera/README.md`.
 
 ## Phase 1 behavior and remaining assets
 
@@ -63,7 +63,7 @@ The initial sequence resolves grid/navigation, reveals the masthead with a mask,
 
 Navigation links currently lead to the same blank transition area and update its small label to the requested future section. They do not imply that Work, Talent, or Contact pages already exist. Replace those destinations in the centralized navigation data when those sections are authorized.
 
-Still needed: an isolated, back-view silver camera asset and five photographs of Reese with alt text (and optional real date metadata) for its LCD. The side image cards have been removed without replacement. Current assets are clearly labeled geometric placeholders; they are not intended to match the photographic realism of the mockup. Do not use stock/generated portraits as Reese. Replace paths and geometry in `src/content/hero.ts` without changing components.
+The supplied realistic silver camera PNG is now the rendered shell, with perspective-matched LCD content and counter. Still needed: five photographs of Reese with alt text (and optional real date metadata) for its LCD. The side image cards have been removed without replacement. The LCD frames remain geometric placeholders. Do not use stock/generated portraits as Reese. Replace paths and geometry in `src/content/hero.ts` without changing components.
 
 Keep page content and layout as Server Components by default; isolate browser interactions in small Client Components. Import animation tools from `@/lib/gsap`, scope animations with `useGSAP`, and return cleanup for any media contexts, listeners, or other resources. The reusable `Reveal` demonstrates scoped ScrollTrigger cleanup and responds to live `prefers-reduced-motion` changes. Its content stays visible without JavaScript, and reduced-motion users receive no reveal animation.
 

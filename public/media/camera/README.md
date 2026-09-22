@@ -1,19 +1,22 @@
-# Replaceable camera assets
+# Camera shell and replaceable LCD images
 
-All current SVGs are temporary diagrams/abstract image placeholders, not camera photographs or images of Reese.
+`camera-back.png` is the user's original 1536 × 1024 transparent PNG, copied without raster modification. It is the rendered camera shell. The old illustrated `shell-placeholder.svg` is no longer referenced by the hero.
 
-## Realistic shell asset slot — awaiting user-supplied image
+The camera keeps its existing 600:390 layout box, desktop `20vw` / 320px cap, mobile sizing, shadow, and interactions. A source-coordinate viewport `[250, 192, 1080, 702]` trims transparent margins in the rendered composition without stretching or editing the physical photograph. The shell uses `next/image`. Its photographed tilt is approximately nine degrees, so the CSS resting rotation is two degrees on desktop and minus one degree on mobile to retain the original overall tilt.
 
-Reserved path: `public/media/camera/camera-back.webp` (transparent PNG or AVIF is also supported; update the extension in the configuration). No realistic standalone camera asset currently exists in the repository, so the interactive SVG fallback remains until that image is supplied. The supplied homepage screenshot is a visual reference, not an isolated camera asset.
+## LCD registration
 
-Provide a high-resolution, tightly cropped, transparent rear-view photograph of a silver early-2000s point-and-shoot camera with realistic surface texture, controls, seams, and highlights. Aim for at least 1000px width. Keep the LCD approximately rectangular and facing the viewer so the separate replaceable photo layer can align with it. Avoid a baked-in portrait, screen counter, or surrounding webpage. The existing CSS supplies slight rotation and a separate soft ground shadow; avoid baking a large shadow into the asset.
+All geometry lives in `cameraAssets` in `src/content/hero.ts`. The LCD's inner corners, in original source-image pixels and clockwise order, are:
 
-When the asset arrives, set `cameraAssets.shell` to `/media/camera/camera-back.webp`, update its intrinsic dimensions and LCD percentages, and set `placeholder` to `false`. This preserves pointer tilt, hover lift/reset, click/flash, image cycling, and the counter. The five LCD frames remain separately replaceable. Do not fabricate a photographic shell using CSS.
+- Top-left: `(483, 338)`
+- Top-right: `(991, 416)`
+- Bottom-right: `(936, 772)`
+- Bottom-left: `(428, 691)`
 
-Desktop object width is `20vw`, capped at 320px and its existing column width. The cap keeps it smaller on wide displays. Editorial columns and mobile sizing remain unchanged.
+`screen-transform.ts` maps a 520 × 360 content plane to those four corners using a projective matrix. `CameraScreen` renders that plane inside a responsive SVG viewport shared with the shell's framing. Its photograph, counter, and optional metadata all receive the same perspective transform; overflow is clipped to the LCD with subtly rounded corners. Only the LCD content is perspective-transformed; the physical shell retains its original proportions.
 
-Replace the shell with a transparent PNG/WebP/AVIF of a silver compact camera viewed straight from the back. Keep the LCD visible and preferably clear. Do not bake the photograph into the shell. CSS supplies the resting rotation, so use an unrotated asset where possible.
+## Replace the five LCD images
 
-Place five photographs of Reese here and update `cameraAssets` in `src/content/hero.ts`: shell path, intrinsic width/height, frame paths, descriptive alt text, optional metadata, and `placeholder: false`. Set the screen's left/top/width/height percentages to match the new shell. Current geometry is 600 × 390, with a 65% × 73% LCD at left 7.5%, top 13%. All replacement settings live in that data file; no component edits are needed.
+Add five photographs of Reese here and update the five `cameraAssets.frames` entries with paths, descriptive alt text, and optional real metadata. No component changes are needed. The current `lcd-01.svg` through `lcd-05.svg` files are abstract placeholders, not photographs of Reese. The `01 / 05` counter derives from the array length.
 
-Click, tap, Enter, or Space cycles all configured frames. No personal images or camera dates are invented. The screen counter derives from the frame array. The viewport wash is rate-limited and disabled for reduced motion.
+Click, tap, Enter, or Space advances the frames. The warm viewport flash is rate-limited and disabled for reduced motion. Pointer tilt, hover lift/reset, page entrance, scroll movement, and their cleanup remain intact. There is no visible instruction caption; the button retains its accessible name and live image announcement.

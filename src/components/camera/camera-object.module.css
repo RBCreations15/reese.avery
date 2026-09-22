@@ -9,25 +9,25 @@
   display: block;
   position: relative;
   width: 100%;
+  aspect-ratio: 600 / 390;
   border: 0;
   padding: 0;
   background: transparent;
   color: var(--color-background);
   cursor: pointer;
-  transform: rotate(11deg);
+  /* The supplied photograph already carries about nine degrees of tilt. */
+  transform: rotate(2deg);
   transform-style: preserve-3d;
   -webkit-tap-highlight-color: transparent;
 }
-.shell { position: relative; width: 100%; height: auto; }
-.screen { position: absolute; overflow: hidden; background: #252521; border-radius: 2px; text-align: left; }
-.screen > img { object-fit: cover; }
-.counter, .metadata { position: absolute; z-index: 1; font-family: var(--font-mono); font-size: clamp(0.5rem, 0.75vw, 0.875rem); letter-spacing: 0.08em; color: #fff; text-shadow: 0 1px 3px #000; }
+.shell { position: absolute; max-width: none; height: auto; pointer-events: none; }
+.screenViewport { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.screen { position: absolute; transform-origin: 0 0; overflow: hidden; background: #252521; border-radius: 4px; text-align: left; }
+.screen > img { object-fit: cover; filter: brightness(0.85); }
+.counter, .metadata { position: absolute; z-index: 1; font-family: var(--font-mono); font-size: 27px; letter-spacing: 0.08em; color: #fff; text-shadow: 0 1px 3px #000; }
 .counter { top: 8%; left: 7%; }
 .metadata { bottom: 7%; left: 7%; }
 .shadow { width: 65%; height: 12px; margin: 2.5rem auto 0; background: #242421; filter: blur(17px); opacity: 0.22; border-radius: 50%; transform: rotate(7deg); }
-.caption { position: absolute; top: calc(100% + 0.3rem); width: 100%; text-align: center; font-family: var(--font-mono); font-size: clamp(0.45rem, 0.54vw, 0.625rem); letter-spacing: 0.12em; color: var(--color-muted); }
 @media (max-width: 700px) {
-  .camera { transform: rotate(8deg); }
-  .counter, .metadata { font-size: 0.625rem; }
-  .caption { font-size: 0.5rem; }
+  .camera { transform: rotate(-1deg); }
 }

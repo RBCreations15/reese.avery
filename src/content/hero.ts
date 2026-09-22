@@ -25,20 +25,27 @@ type CameraAssets = {
   shell: string;
   width: number;
   height: number;
-  placeholder: boolean;
-  // Percentages relative to an unrotated shell; tune here for a replacement asset.
-  screen: { left: string; top: string; width: string; height: string };
+  // Crop and screen corners use original source-image coordinates, not CSS pixels.
+  viewBox: readonly [number, number, number, number];
+  screen: {
+    width: number;
+    height: number;
+    corners: readonly [readonly [number, number], readonly [number, number], readonly [number, number], readonly [number, number]];
+  };
   frames: readonly [CameraFrame, ...CameraFrame[]];
 };
 
 export const cameraAssets: CameraAssets = {
-  // Realistic asset slot: /media/camera/camera-back.webp (not supplied yet).
-  // Keep this fallback until that transparent photograph exists; see the asset README.
-  shell: "/media/camera/shell-placeholder.svg",
-  width: 600,
-  height: 390,
-  placeholder: true,
-  screen: { left: "7.5%", top: "13%", width: "65%", height: "73%" },
+  shell: "/media/camera/camera-back.png",
+  width: 1536,
+  height: 1024,
+  viewBox: [250, 192, 1080, 702],
+  screen: {
+    width: 520,
+    height: 360,
+    // Inner LCD, clockwise: top-left, top-right, bottom-right, bottom-left.
+    corners: [[483, 338], [991, 416], [936, 772], [428, 691]],
+  },
   frames: [
     { src: "/media/camera/lcd-01.svg", alt: "Temporary LCD frame 1: abstract light study" },
     { src: "/media/camera/lcd-02.svg", alt: "Temporary LCD frame 2: abstract shadow study" },
