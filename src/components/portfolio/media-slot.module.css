@@ -1,0 +1,16 @@
+.media { position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: var(--slot-bg); color: var(--slot-ink); }
+.stone { --slot-bg: #ccc9c0; --slot-ink: #34342f; }
+.ink { --slot-bg: #292824; --slot-ink: #ddd7ca; }
+.sage { --slot-bg: #aab39d; --slot-ink: #2a392e; }
+.clay { --slot-bg: #b78e78; --slot-ink: #312923; }
+.navy { --slot-bg: #1c303f; --slot-ink: #d8c391; }
+.cream { --slot-bg: #e5dfd0; --slot-ink: #4a443a; }
+.media > img { object-fit: cover; }
+.media > video { width: 100%; height: 100%; object-fit: contain; }
+.placeholder { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-between; padding: clamp(0.7rem, 2vw, 2rem); }
+.slotTop, .slotBottom { position: relative; z-index: 1; font: 400 0.65rem/1.4 var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; }
+.slotBottom { display: flex; flex-wrap: wrap; align-items: end; gap: 0.75rem; justify-content: space-between; }
+.slotBottom small { font-size: 0.55rem; white-space: nowrap; }
+.registration { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font: 200 clamp(3rem, 8vw, 9rem)/1 var(--font-body); opacity: 0.22; }
+.placeholder::after { content: ""; position: absolute; inset: 14%; border: 1px solid currentColor; opacity: 0.13; }
+@media (max-width: 700px) { .slotBottom { font-size: 0.55rem; } }

@@ -1,21 +1,16 @@
-"use client";
-
+import Link from "next/link";
 import { heroContent } from "@/content/hero";
 import styles from "./navigation.module.css";
 
 export function Navigation() {
   return (
     <header className={styles.header} data-nav>
-      <a className={styles.brand} href="#main-content">REESE AVERY</a>
+      <Link className={styles.brand} href="/#main-content">REESE AVERY</Link>
       <nav aria-label="Main navigation" className={styles.nav}>
-        {heroContent.navigation.map(({ label, href, destination }) => (
-          <a key={label} href={href} title={`${label} — planned section`} onClick={() => {
-            // All destinations intentionally share the blank Phase 1 preview area.
-            const target = document.getElementById("next-label");
-            if (target) target.textContent = `NEXT — ${destination}`;
-          }}>
+        {heroContent.navigation.map(({ label, href }) => (
+          <Link key={label} href={href}>
             <span aria-hidden="true">(</span> {label} <span aria-hidden="true">)</span>
-          </a>
+          </Link>
         ))}
       </nav>
       <p className={styles.availability}><span aria-hidden="true">✳</span>{heroContent.availability}</p>

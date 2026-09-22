@@ -1,8 +1,2 @@
-.transition {
-  min-height: 65svh;
-  border-top: 1px solid var(--color-grid);
-  padding: 3rem var(--page-gutter);
-}
-.transition h2 { margin: 0; font: 400 var(--type-label) var(--font-mono); letter-spacing: var(--tracking-label); color: var(--color-muted); }
 .flash { position: fixed; inset: 0; z-index: 50; pointer-events: none; background: #fffef8; opacity: 0; }
 @media (prefers-reduced-motion: reduce) { .flash { display: none; } }

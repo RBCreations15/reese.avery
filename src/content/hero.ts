@@ -12,9 +12,9 @@ export const heroContent = {
   ],
   manifesto: ["ALL THINGS", "STRATEGICALLY AESTHETIC."],
   navigation: [
-    { label: "Work", href: "#next", destination: "SELECTED WORK" },
-    { label: "Talent", href: "#next", destination: "TALENT" },
-    { label: "Contact", href: "#next", destination: "CONTACT" },
+    { label: "Work", href: "/work" },
+    { label: "Talent", href: "/talent" },
+    { label: "Contact", href: "/#contact" },
   ],
   availability: "OPEN TO WORK",
   established: "EST. 2025",
